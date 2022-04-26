@@ -27,5 +27,5 @@ Use: steghide extract -sf <**file**>
 
 ![steghide](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/steghide.png)
 
-The txt seems to be a base64 encoded text so let’s decode it in the terminal
+The txt seems to be a base64 encoded text so let’s decode it in the terminal\
 ` cat b64.txt | base64 -d `
