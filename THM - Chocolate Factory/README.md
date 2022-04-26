@@ -2,7 +2,7 @@
 
 ##### author: Dániel Varkoly
 
-Chocolate Factory themed CTF
+##Chocolate Factory themed CTF
 
 First scan the machine with nmap:
 nmap -A -T5 -v <**ip**>
