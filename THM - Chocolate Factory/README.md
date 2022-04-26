@@ -60,12 +60,12 @@ Now to the interesting part: **home.php**
 
 There is a command injection page in here. Let’s try a few
 
-` ls: `
+` ls: ` \
  home.jpg home.php image.png index.html index.php.bak key_rev_key validate.php
 
-So there is a key in this directory. Let’s see what it has.
-` cat key_rev_key `
+So there is a key in this directory. Let’s see what it has.\
 
+` cat key_rev_key `
 copy it and echo to terminal to see it better
 
 Enter your name: %slaksdhfas congratulations you have found the key: b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=' Keep its safeBad name!
