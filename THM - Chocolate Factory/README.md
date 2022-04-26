@@ -1,4 +1,6 @@
-# Chocolate Factory themed CTF writeup
+# Chocolate Factory themed CTF writeup 
+
+####### *author: Dániel Varkoly*
 
 Chocolate Factory themed CTF
 
