@@ -62,29 +62,29 @@ There is a command injection page in here. Let’s try a few
 
 `ls:`
 
-home.jpg home.php image.png index.html index.php.bak key_rev_key validate.php\
+  home.jpg home.php image.png index.html index.php.bak key_rev_key validate.php\
 
-So there is a key in this directory. Let’s see what it has.
+  So there is a key in this directory. Let’s see what it has.
 
 `cat key_rev_key`
 
-copy it and echo to terminal to see it better\
+  copy it and echo to terminal to see it better\
 
-Enter your name: %slaksdhfas congratulations you have found the key: b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=' Keep its safeBad name!
+  Enter your name: %slaksdhfas congratulations you have found the key: b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=' Keep its safeBad name!
 
-See other directories aswell.
+  See other directories aswell.
 
-`pwd:
+`pwd:`
 
-/var/www/html`
+  /var/www/html
 
-`ls /home
+`ls /home`
 
-user named charlie`
+  user named charlie
 
 `ls /home/charlie`
 
-teleport teleport.pub user.txt
+  teleport teleport.pub user.txt
 
 user.txt is not readable
 teleport.pub is the ssh public key and teleport is the private key
