@@ -23,6 +23,9 @@ Anonymous FTP login is allowed so let’s try that and see what we find
 Download gum_room.jpg to our machine. Maybe there is something hidden behind this picture. 
 We can find it out with steghide.
 
+Use: steghide extract -sf <**file**>
+
 ![steghide](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/steghide.png)
 
-Use: steghide extract -sf <**file**>
+The txt seems to be a base64 encoded text so let’s decode it in the terminal
+` cat b64.txt | base64 -d `
