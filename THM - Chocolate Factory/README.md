@@ -29,3 +29,11 @@ Use: steghide extract -sf <**file**>
 
 The txt seems to be a base64 encoded text so let’s decode it in the terminal\
 ` cat b64.txt | base64 -d `
+
+It seems to be an etc/shadow file and there is a user named charlie\
+*charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::*
+
+
+Let’s find the subdomains using gobuster\
+`gobuster dir -u http://<ip>/ -w /usr/share/dirb/wordlists/common.txt -x php,html,sh,txt`
+
