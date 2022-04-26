@@ -74,13 +74,13 @@ Enter your name: %slaksdhfas congratulations you have found the key: b'-VkgXhFf6
 
 See other directories aswell.
 
-`pwd:`
+`pwd:
 
-/var/www/html
+/var/www/html`
 
-`ls /home`
+`ls /home
 
-user named charlie
+user named charlie`
 
 `ls /home/charlie`
 
