@@ -37,4 +37,8 @@ It seems to be an etc/shadow file and there is a user named charlie\
 Let’s find the subdomains using gobuster\
 `gobuster dir -u http://<ip>/ -w /usr/share/dirb/wordlists/common.txt -x php,html,sh,txt`
 
+![gobuster](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/gobuster1.png)
+
+First check out **Index.html*. *Home.php** seems interesting, let’s navigate there aswell.
+
 ##### author: Dániel Varkoly
