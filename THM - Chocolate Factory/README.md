@@ -3,7 +3,7 @@
 Chocolate Factory themed CTF
 
 First scan the machine with nmap:
-nmap -A -T5 -v **{ip}**
+nmap -A -T5 -v <**ip**>
 
 ![nmap1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/nmap1.png)
 
@@ -24,3 +24,5 @@ Download gum_room.jpg to our machine. Maybe there is something hidden behind thi
 We can find it out with steghide.
 
 ![steghide](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/steghide.png)
+
+Use: steghide extract -sf <**file**>
