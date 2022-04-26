@@ -43,6 +43,9 @@ First check out **Index.html**. \ **Home.php** also seems interesting, let’s n
 
 Index.html is a login page, let’s see the source code.
 ![index](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/website_indexhtml.png)
+
+Index.html is a login page, let’s see the source code.
+
 ![src_code](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/source_code.png)
 
 
