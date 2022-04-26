@@ -155,5 +155,30 @@ Use the vi oneliner from gtfobins:
 
 ![root](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/root.png)
 
+check this root.py 
+`cat root.py`
+
+    ‘’’
+    from cryptography.fernet import Fernet
+    import pyfiglet
+    key=input("Enter the key:  ")
+    f=Fernet(key)
+    encrypted_mess= 'gAAAAABfdb52eejIlEaE9ttPY8ckMMfHTIw5lamAWMy8yEdGPhnm9_H_yQikhR-bPy09-NVQn8lF_PDXyTo-T7CpmrFfoVRWzlm0OffAsUM7KIO_xbIQkQojwf_unpPAAKyJQDHNvQaJ'
+    dcrypt_mess=f.decrypt(encrypted_mess)
+    mess=dcrypt_mess.decode()
+    display1=pyfiglet.figlet_format("You Are Now The Owner Of ")
+    display2=pyfiglet.figlet_format("Chocolate Factory ")
+    print(display1)
+    print(display2)
+    print(mess)#
+    ‘’’
+
+Finally run it with python
+
+`python root.py`
+
+It asks for the key, so let’s try the key we found in key_rev_key
+
+![sudo l](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/root%20flag.png)
 
 ##### author: Dániel Varkoly
