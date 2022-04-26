@@ -39,6 +39,6 @@ Let’s find the subdomains using gobuster\
 
 ![gobuster](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Chocolate%20Factory/Images/gobuster1.png)
 
-First check out **Index.html*. *Home.php** seems interesting, let’s navigate there aswell.
+First check out **Index.html**. **Home.php** seems interesting, let’s navigate there aswell.
 
 ##### author: Dániel Varkoly
