@@ -1,6 +1,6 @@
 # Chocolate Factory themed CTF writeup 
 
-##### author: Dániel Varkoly
+
 
 ## Chocolate Factory themed CTF on Tryhackme.com
 
@@ -39,3 +39,4 @@ It seems to be an etc/shadow file and there is a user named charlie\
 Let’s find the subdomains using gobuster\
 `gobuster dir -u http://<ip>/ -w /usr/share/dirb/wordlists/common.txt -x php,html,sh,txt`
 
+##### author: Dániel Varkoly
