@@ -50,9 +50,9 @@ I did the same with /test but haven’t found anything useful there
 
 At this point we hit a dead end, so our only remaining option is to check SMB shares and find something (hopefully).
 
-![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smbclient.png)
+![smb1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smbclient.png)
 
-![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smb2.png)
+![smb2](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smb2.png)
 
 Success! The first share didn't work but websvr had this interesting enter.txt.\
 Cat this out.
@@ -76,3 +76,20 @@ Cat this out.
     Wordpress creds
     |->
 
+Cooked with magical formula suggests that we are dealing with a hashed pw here. First I tried crackstation and hashanalyzer but both attempts failed.\
+Cyberchef on the other hand could work perfectly with.. the magic formula.
+
+![chef](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/cyberchef.png)
+
+That was easy, we found a password: **Scam2021**
+
+The note left by the scammer will lead us to our next step if we take it literally. Let's navigate to /subrion/panel
+
+![subrion](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/subrion%20panel.png)
+
+
+
+
+
+
+##### author: Dániel Varkoly
