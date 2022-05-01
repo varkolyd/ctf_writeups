@@ -140,8 +140,8 @@ Now we are getting close.
       
 After searching it on GTFObins here's what we find:
 
-`LFILE=file_to_read
-iconv -f 8859_1 -t 8859_1 "$LFILE"`
+`LFILE=file_to_read`
+`iconv -f 8859_1 -t 8859_1 "$LFILE"`
 
 ![ROOT](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/ROOT..png)
 
