@@ -33,9 +33,13 @@ Let's try wordpress maybe we will find more useful stuff there.
 Okay so here we could browse all the tabs and hope for the best and be lazy and run gobuster. I did both.
 
 `gobuster dir -u http://10.10.197.14/wordpress -w /usr/share/dirb/wordlists/common.txt -x php,html,txt,sh`
+
     /license.txt          (Status: 200) [Size: 19915]
+    
     /readme.html          (Status: 200) [Size: 7345]
+    
     /wp-admin             (Status: 301) [Size: 325] [--> http://10.10.197.14/wordpress/wp-admin/]
+    
     /wp-includes          (Status: 301)[Size:328][-->http://10.10.197.14/wordpress/wp-includes/]
 
 I did the same with /test but haven’t found anything useful
