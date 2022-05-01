@@ -114,7 +114,8 @@ Now that we have a better shell we can run linpeas.sh from our computer:
 ![lp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wp_config_PW.png)
 
 We have found suspicious info here. Remember user 'support'? Grab the PW and try to log in with SSH.\
-Use the following credentials:\
+Use the following credentials:
+``
     scamsite
     ImAScammerLOL!123!
 
