@@ -1,5 +1,6 @@
-# Hack a scammer's website and ruin their day. CTF writeup | Tryhackme.com
+#  Tech_Supp0rt 1 CTF writeup | Tryhackme.com
 
+Hack a scammer's website and ruin their day.
 
 First scan the ports with rustscan:\
 ![rsc1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/rustscan_1.png)\
