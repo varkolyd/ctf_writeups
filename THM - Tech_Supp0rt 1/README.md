@@ -11,13 +11,13 @@ Ports:\
 Open 10.10.197.14:22 - SSH\
 Open 10.10.197.14:80 - HTTP\
 Open 10.10.197.14:139 - NetBIOS\
-Open 10.10.197.14:445 - SMB\
+Open 10.10.197.14:445 - SMB
 
 Now let's inspect this IP in our browser.
 
 ![indexhtml](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/indexhtml.png)
 
-It is a basic apache webserver, but there's probably more to it. Find it out with gobuster!
+It is a basic apache webserver welcome site, but there's probably more hidden underneath. Find it out with gobuster!
 
 ![gobuster](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/gobuster.png)
 
@@ -29,3 +29,13 @@ Test is basically a static scammer site, can't really click anywhere. I've looke
 Let's try wordpress maybe we will find more useful stuff there.
 
 ![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wordpress.png)
+
+Okay so here we could browse all the tabs and hope for the best and be lazy and run gobuster. I did both.
+
+`gobuster dir -u http://10.10.197.14/wordpress -w /usr/share/dirb/wordlists/common.txt -x php,html,txt,sh`
+    /license.txt          (Status: 200) [Size: 19915]
+    /readme.html          (Status: 200) [Size: 7345]
+    /wp-admin             (Status: 301) [Size: 325] [--> http://10.10.197.14/wordpress/wp-admin/]
+    /wp-includes          (Status: 301)[Size:328][-->http://10.10.197.14/wordpress/wp-includes/]
+
+I did the same with /test but haven’t found anything useful
