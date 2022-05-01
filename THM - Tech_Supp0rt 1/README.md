@@ -105,6 +105,7 @@ With whoami we see that we have user permissions, and an inconvenient shell. We 
 At least we can see what lies in the home directory and what users we have to deal with.
 
 **scamsite** Is our guy.
+
 ![usr_scamsite](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/user_scamsite.png)
 
 
@@ -129,4 +130,22 @@ We have found suspicious info here. Remember user 'support'? Grab the PW and try
 
 ![sshlogin](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/login%20to%20SSH.png)
 
+Now we are getting close.
+
+`sudo -l` and we see our key to get the root.txt
+
+    User scamsite may run the following commands on TechSupport:
+        (ALL) NOPASSWD: /usr/bin/iconv
+      
+      
+After searching it on GTFObins here's what we find:
+
+`LFILE=file_to_read
+iconv -f 8859_1 -t 8859_1 "$LFILE"`
+
+![ROOT](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/ROOT..png)
+
+
+
+get the root flag
 ##### author: Dániel Varkoly
