@@ -92,7 +92,7 @@ The note left by the scammer will lead us to our next step if we take it literal
 
 ![subrion](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/subrion%20panel.png)
 
-It is worth what version the CMS has. Probably it would be a good idea to search any vulnerabilities (if there are any).\
+It is worth noting what version the CMS has. Probably it would be a good idea to search any vulnerabilities (if there are any).\
 We found just what we needed:
 https://www.exploit-db.com/exploits/49876
 
@@ -113,7 +113,11 @@ Now that we have a better shell we can run linpeas.sh from our computer:
 
 ![lp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wp_config_PW.png)
 
-We have found suspicious info here. Remember user 'support'? Grab the PW and try to log in with SSH.
+We have found suspicious info here. Remember user 'support'? Grab the PW and try to log in with SSH.\
+Use the following credentials:\
+    scamsite
+    ImAScammerLOL!123!
+
 
 ![sshlogin](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/login%20to%20SSH.png)
 
