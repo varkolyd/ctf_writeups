@@ -30,7 +30,11 @@ Let's try wordpress maybe we will find more useful stuff there.
 
 ![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wordpress.png)
 
-Okay so here we could browse all the tabs and hope for the best and be lazy and run gobuster. I did both.
+Okay so here we could browse all the tabs or be lazy and run gobuster. I did both.
+
+By browsing this directory I found a wordpress admin login site and some Hello World comments by the user named: **support**
+
+Gobuster basically confirmed this
 
 `gobuster dir -u http://10.10.197.14/wordpress -w /usr/share/dirb/wordlists/common.txt -x php,html,txt,sh`
 
@@ -42,4 +46,33 @@ Okay so here we could browse all the tabs and hope for the best and be lazy and 
     
     /wp-includes          (Status: 301)[Size:328][-->http://10.10.197.14/wordpress/wp-includes/]
 
-I did the same with /test but haven’t found anything useful
+I did the same with /test but haven’t found anything useful there
+
+At this point we hit a dead end, so our only remaining option is to check SMB shares and find something (hopefully).
+
+![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smbclient.png)
+
+![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/smb2.png)
+
+Success! The first share didn't work but websvr had this interesting enter.txt.\
+Cat this out.
+
+`cat enter.txt`
+
+    GOALS
+
+    =====
+
+    1)Make fake popup and host it online on Digital Ocean server
+    2)Fix subrion site, /subrion doesn't work, edit from panel
+    3)Edit wordpress website
+
+
+
+    IMP
+    ===
+    Subrion creds
+    |->admin:7sKvntXdPEJaxazce9PXi24zaFrLiKWCk [cooked with magical formula]
+    Wordpress creds
+    |->
+
