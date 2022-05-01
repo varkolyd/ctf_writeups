@@ -2,8 +2,11 @@
 
 Hack a scammer's website and ruin their day.
 
-First scan the ports with rustscan:\
-![rsc1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/rustscan_1.png)\
+First scan the ports with rustscan:
+
+
+![rsc1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/rustscan_1.png)
+
 
 ![rsc1](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/rustscan_2.png)
 
@@ -23,11 +26,13 @@ It is a basic apache webserver welcome site, but there's probably more hidden un
 
 */test* and */wordpress* are the directories we are looking for here so let's check both of them.
 
+**TEST**\
 ![test](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/test.png)
 
 Test is basically a static scammer site, can't really click anywhere. I've looked into the source code but besides the images not much seems to be here.
 Let's try wordpress maybe we will find more useful stuff there.
 
+**WORDPRESS**\
 ![wp](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/wordpress.png)
 
 Okay so here we could browse all the tabs or be lazy and run gobuster. I did both.
