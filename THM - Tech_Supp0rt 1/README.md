@@ -92,8 +92,7 @@ The note left by the scammer will lead us to our next step if we take it literal
 
 ![subrion](https://github.com/varkolyd/ctf_writeups/blob/main/THM%20-%20Tech_Supp0rt%201/tech_supp0rt%201%20images/subrion%20panel.png)
 
-It is worth what version the CMS has. Probably it would be a good idea to search any vulnerabilities (if there are any).
-We found just what we needed:
+It is worth what version the CMS has. Probably it would be a good idea to search any vulnerabilities (if there are any).\We found just what we needed:
 https://www.exploit-db.com/exploits/49876
 
 
